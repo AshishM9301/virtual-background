@@ -3,6 +3,7 @@ import CardContent from '@material-ui/core/CardContent'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import VideocamIcon from '@material-ui/icons/Videocam'
+import { useEffect } from 'react'
 import ImageButton from '../../shared/components/ImageButton'
 import SelectionIconButton from '../../shared/components/SelectionIconButton'
 import VideoButton from '../../shared/components/VideoButton'
@@ -19,6 +20,10 @@ type SourceConfigCardProps = {
 
 function SourceConfigCard(props: SourceConfigCardProps) {
   const classes = useStyles()
+
+  useEffect(() => {
+    props.onChange({ type: 'camera' })
+  }, [])
 
   return (
     <Card className={classes.root}>
@@ -57,6 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flex: 1,
+      display: 'none',
     },
   })
 )

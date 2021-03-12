@@ -108,6 +108,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      opacity: 0,
 
       [theme.breakpoints.down('xs')]: {
         width: 0,
@@ -115,7 +116,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       [theme.breakpoints.up('sm')]: {
-        flex: 1,
         borderRightWidth: 1,
         borderRightStyle: 'solid',
         borderRightColor: theme.palette.divider,

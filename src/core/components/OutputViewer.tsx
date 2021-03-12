@@ -1,5 +1,4 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
 import { BodyPix } from '@tensorflow-models/body-pix'
 import React, { useEffect } from 'react'
 import { BackgroundConfig } from '../helpers/backgroundHelper'
@@ -67,9 +66,6 @@ function OutputViewer(props: OutputViewerProps) {
         width={props.sourcePlayback.width}
         height={props.sourcePlayback.height}
       />
-      <Typography className={classes.stats} variant="caption">
-        {stats}
-      </Typography>
     </div>
   )
 }
@@ -79,6 +75,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flex: 1,
       position: 'relative',
+      height: 1000,
     },
     render: {
       position: 'absolute',

@@ -9,7 +9,7 @@ import Slider from '@material-ui/core/Slider'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Switch from '@material-ui/core/Switch'
 import Typography from '@material-ui/core/Typography'
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useEffect } from 'react'
 import {
   BlendMode,
   PostProcessingConfig,
@@ -24,6 +24,19 @@ type PostProcessingConfigCardProps = {
 
 function PostProcessingConfigCard(props: PostProcessingConfigCardProps) {
   const classes = useStyles()
+
+  useEffect(() => {
+    props.onChange({
+      ...props.config,
+      jointBilateralFilter: {
+        sigmaSpace: 1,
+        sigmaColor: 0.1,
+      },
+      coverage: [0, 0.2],
+      lightWrapping: 0,
+      blendMode: 'screen',
+    })
+  }, [])
 
   function handleSmoothSegmentationMaskChange(
     event: ChangeEvent<HTMLInputElement>
@@ -76,7 +89,7 @@ function PostProcessingConfigCard(props: PostProcessingConfigCardProps) {
   }
 
   return (
-    <Card>
+    <Card style={{ display: 'none' }}>
       <CardContent>
         <Typography gutterBottom variant="h6" component="h2">
           Post-processing

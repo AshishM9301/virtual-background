@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useEffect } from 'react'
 import {
   InputResolution,
   PipelineName,
@@ -23,6 +23,16 @@ type SegmentationConfigCardProps = {
 
 function SegmentationConfigCard(props: SegmentationConfigCardProps) {
   const classes = useStyles()
+
+  useEffect(() => {
+    props.onChange({
+      ...props.config,
+      model: 'meet',
+      backend: 'wasm',
+      inputResolution: '144p',
+      pipeline: 'webgl2',
+    })
+  }, [])
 
   function handleModelChange(event: ChangeEvent<{ value: unknown }>) {
     const model = event.target.value as SegmentationModel
@@ -165,6 +175,7 @@ const useStyles = makeStyles((theme: Theme) =>
         gridColumnStart: 2,
         gridRowStart: 2,
       },
+      display: 'none',
     },
     formControls: {
       display: 'flex',

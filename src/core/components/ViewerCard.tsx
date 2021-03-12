@@ -1,15 +1,15 @@
-import Avatar from '@material-ui/core/Avatar'
-import Paper from '@material-ui/core/Paper'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { BodyPix } from '@tensorflow-models/body-pix'
-import { useEffect, useState } from 'react'
-import { BackgroundConfig } from '../helpers/backgroundHelper'
-import { PostProcessingConfig } from '../helpers/postProcessingHelper'
-import { SegmentationConfig } from '../helpers/segmentationHelper'
-import { SourceConfig, SourcePlayback } from '../helpers/sourceHelper'
-import { TFLite } from '../hooks/useTFLite'
-import OutputViewer from './OutputViewer'
-import SourceViewer from './SourceViewer'
+import Avatar from '@material-ui/core/Avatar';
+import Paper from '@material-ui/core/Paper';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { BodyPix } from '@tensorflow-models/body-pix';
+import { useEffect, useState } from 'react';
+import { BackgroundConfig } from '../helpers/backgroundHelper';
+import { PostProcessingConfig } from '../helpers/postProcessingHelper';
+import { SegmentationConfig } from '../helpers/segmentationHelper';
+import { SourceConfig, SourcePlayback } from '../helpers/sourceHelper';
+import { TFLite } from '../hooks/useTFLite';
+import OutputViewer from './OutputViewer';
+import SourceViewer from './SourceViewer';
 
 type ViewerCardProps = {
   sourceConfig: SourceConfig
